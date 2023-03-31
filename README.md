@@ -1,7 +1,7 @@
 # Ambiente de desenvolvimento php5, 7, 8, mariadb, nginx, usado laradock como base
 ___
 ## Estrutura
-![alt text](https://github.com/Lydia-Sistemas/dev-docker/img/main/ex1.png?raw=true)
+![alt text](https://github.com/Lydia-Sistemas/dev-docker/blob/main/img/ex1.png?raw=true)
 ## Utilização
 1. **Instalar docker conforme seu SO**
     - Linux
