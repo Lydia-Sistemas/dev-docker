@@ -1,7 +1,21 @@
 # Ambiente de desenvolvimento php5, 7, 8, mariadb, nginx, usado laradock como base
 ___
-## Estrutura
-![alt text](https://github.com/Lydia-Sistemas/dev-docker/blob/main/img/ex1.png?raw=true)
+## Serviços
+1. **NGINX**
+    - Retorna arquivos estaticos
+    - Redireciona para php
+3. **PHP5**
+    - Trata requisições em php 5
+4. **PHP7**
+    - Trata requisições em php 7
+5. **PHP8**
+    - Trata requisições em php 8
+6. **MARIADB (opcional)**
+    - Database para qualquer aplição, requer criar base e configurações
+7. **PORTAINER (opcional)**
+    - Interface para gerenciamento de cotnainers
+
+
 ## Utilização
 1. **Instalar docker conforme seu SO**
     - Linux
