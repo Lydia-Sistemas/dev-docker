@@ -38,7 +38,7 @@ ___
     - http://localhost:9010
 6. **Para configurar NGINX**
     - Adicione um arquivo conf do nginx no path DATA_PATH_HOST/nginx, DATA_PATH_HOST caminho que você indicou no .env
-        - Exmplo de configuraçao dos hosts
+        - Exemplo de configuraçao dos hosts
         ```
         server {
             server_name php.local;
@@ -69,3 +69,4 @@ ___
         }
         ```
     - Após adicionar um novo host (site) reinicie o container do **nginx**
+    - ***fastcgi_pass*** indica o nome do container a ser utilizado com qual versão do php, no exemplo utilizando ***php 8***
