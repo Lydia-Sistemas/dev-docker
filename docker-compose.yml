@@ -25,6 +25,7 @@ services:
         - 9010:9000
       networks:
         - backend
+      restart: always
 
 ### MariaDB ##############################################
     mariadb:
@@ -48,6 +49,7 @@ services:
         - MYSQL_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
       networks:
         - backend
+      restart: always
 
 ### NGINX Server #########################################
     nginx:
@@ -74,6 +76,7 @@ services:
       networks:
         - frontend
         - backend
+      restart: always
 
 ### PHP8 ##############################################
     php8:
@@ -180,6 +183,7 @@ services:
         - FAKETIME=${PHP_FPM_FAKETIME}
       networks:
         - backend
+      restart: always
 
 ### PHP7 ##############################################
     php7:
@@ -286,6 +290,7 @@ services:
         - FAKETIME=${PHP_FPM_FAKETIME}
       networks:
         - backend
+      restart: always
 
 
 ### PHP5 ##############################################
@@ -393,6 +398,7 @@ services:
         - FAKETIME=${PHP_FPM_FAKETIME}
       networks:
         - backend
+      restart: always
 
 ### SLIM ################################################
     slim:
