@@ -169,14 +169,14 @@ services:
       volumes:
         - ./php-fpm/php${PHP_VERSION_8}.ini:/usr/local/etc/php/php.ini
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
-        #- docker-in-docker:/certs/client
       expose:
         - "9000"
+        - "8000"
       extra_hosts:
         - "dockerhost:${DOCKER_HOST_IP}"
+        - "host.docker.internal:host-gateway"
       environment:
-        - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
-        #- DOCKER_HOST=tcp://docker-in-docker:2376
+        - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}8
         - DOCKER_TLS_VERIFY=1
         - DOCKER_TLS_CERTDIR=/certs
         - DOCKER_CERT_PATH=/certs/client
@@ -279,10 +279,12 @@ services:
         #- docker-in-docker:/certs/client
       expose:
         - "9000"
+        - "8000"
       extra_hosts:
         - "dockerhost:${DOCKER_HOST_IP}"
+        - "host.docker.internal:host-gateway"
       environment:
-        - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
+        - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}7
         #- DOCKER_HOST=tcp://docker-in-docker:2376
         - DOCKER_TLS_VERIFY=1
         - DOCKER_TLS_CERTDIR=/certs
@@ -384,14 +386,14 @@ services:
       volumes:
         - ./php-fpm/php${PHP_VERSION_5}.ini:/usr/local/etc/php/php.ini
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
-        #- docker-in-docker:/certs/client
       expose:
         - "9000"
+        - "8000"
       extra_hosts:
         - "dockerhost:${DOCKER_HOST_IP}"
+        - "host.docker.internal:host-gateway"
       environment:
-        - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}
-        #- DOCKER_HOST=tcp://docker-in-docker:2376
+        - PHP_IDE_CONFIG=${PHP_IDE_CONFIG}5
         - DOCKER_TLS_VERIFY=1
         - DOCKER_TLS_CERTDIR=/certs
         - DOCKER_CERT_PATH=/certs/client
@@ -399,19 +401,3 @@ services:
       networks:
         - backend
       restart: always
-
-### SLIM ################################################
-    slim:
-      build:
-        context: ./node
-        args: 
-        - NODE_VERSION=${NODE_VERSION_SLIM}
-      volumes: 
-        - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}
-      working_dir: /sources/${NODE_SLIM_APP_DIR}
-      environment:
-        - WORKINGDIR=/sources/${NODE_SLIM_APP_DIR}
-      ports:
-        - 3000:3000
-      networks:
-        - frontend
