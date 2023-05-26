@@ -686,6 +686,11 @@ RUN if [ ${INSTALL_MYSQLI} = true ]; then \
     docker-php-ext-install mysqli \
 ;fi
 
+ARG INSTALL_MYSQL=false
+
+RUN if [ ${INSTALL_MYSQL} = true ]; then \
+    docker-php-ext-install mysql \
+;fi
 
 ###########################################################################
 # Human Language and Character Encoding Support:
