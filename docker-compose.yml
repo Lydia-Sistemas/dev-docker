@@ -169,6 +169,7 @@ services:
       volumes:
         - ./php-fpm/php${PHP_VERSION_8}.ini:/usr/local/etc/php/php.ini
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+        - ${DATA_PATH_HOST}${PHP_FPM_HOST_LOG_PATH}:/var/log/php
       expose:
         - "9000"
         - "8000"
@@ -276,6 +277,7 @@ services:
       volumes:
         - ./php-fpm/php${PHP_VERSION_7}.ini:/usr/local/etc/php/php.ini
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+        - ${DATA_PATH_HOST}${PHP_FPM_HOST_LOG_PATH}:/var/log/php
         #- docker-in-docker:/certs/client
       expose:
         - "9000"
@@ -386,6 +388,7 @@ services:
       volumes:
         - ./php-fpm/php${PHP_VERSION_5}.ini:/usr/local/etc/php/php.ini
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+        - ${DATA_PATH_HOST}${PHP_FPM_HOST_LOG_PATH}:/var/log/php
       expose:
         - "9000"
         - "8000"
